@@ -1,0 +1,45 @@
+<!-- Create a web page to calculate the Compound Interest using the formula given below:
+Compound Interest =
+Where:
+p = Principal,
+r = Rate of Interest,
+n = period in years
+The values used in the example in the following figure are as follows:
+P = 1000, n = 1, r = 10
+ -->
+
+<html>
+  <head>
+    <script src="./jquery.js"></script>
+    <script>
+      $(document).ready(function () {
+        $("#btn").click(function () {
+          var p = parseInt($("#pr").val());
+          var r = parseInt($("#rate").val());
+          var n = parseInt($("#period").val());
+          var a = p * Math.pow(1 + r / 100, n);
+          var ci = a - p;
+          //(p + (1+( r / 100)) ^ n) - p;
+
+          $("#res").val(ci);
+          $("#mydiv").val(ci);
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <form>
+      Principal:<input type="text" id="pr" name="pr" /> rate:
+      <input type="text" id="rate" name="rate" /> period:
+      <input type="text" id="period" name="period" /> result:<input
+        type="text"
+        id="res"
+        name="res"
+      />
+    </form>
+    <button type="button" id="btn" name="btn" value="btn">
+      Compound Interest
+    </button>
+    <div id="mydiv"></div>
+  </body>
+</html>
